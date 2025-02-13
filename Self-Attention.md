@@ -27,10 +27,13 @@ $$
 每个 #查询（Query）与所有 #键（Key）的点击结果 通过 #softmax函数 计算出每个键对应的注意力权重
 
 - 掩蔽矩阵不存在
+
 $$
 \text{Attention Weights}(Q_i) = \text{softmax}\left( \frac{Q_i \cdot K_1}{\sqrt{d_k}}, \frac{Q_i \cdot K_2}{\sqrt{d_k}}, \dots, \frac{Q_i \cdot K_n}{\sqrt{d_k}} \right)
 $$
+
 - 掩蔽矩阵存在
+
 $$
 \text{Attention Weights}(Q_i) = \text{softmax}\left( \frac{Q_i \cdot K_1}{\sqrt{d_k}}, \frac{Q_i \cdot K_2}{\sqrt{d_k}}, \dots, \frac{Q_i \cdot K_n}{\sqrt{d_k}} + \text{Mask} \right)
 $$
