@@ -26,11 +26,24 @@ $$
 #### 计算注意力权重
 每个 #查询（Query）与所有 #键（Key）的点击结果 通过 #softmax函数 计算出每个键对应的注意力权重
 
+- 掩蔽矩阵不存在
 $$
 \text{Attention Weights}(Q_i) = \text{softmax}\left( \frac{Q_i \cdot K_1}{\sqrt{d_k}}, \frac{Q_i \cdot K_2}{\sqrt{d_k}}, \dots, \frac{Q_i \cdot K_n}{\sqrt{d_k}} \right)
+$$
+- 掩蔽矩阵存在
+$$
+\text{Attention Weights}(Q_i) = \text{softmax}\left( \frac{Q_i \cdot K_1}{\sqrt{d_k}}, \frac{Q_i \cdot K_2}{\sqrt{d_k}}, \dots, \frac{Q_i \cdot K_n}{\sqrt{d_k}} + \text{Mask} \right)
 $$
 
 #### 加权求和
 $$
 \text{Attention Output} = \sum_{j=1}^n \text{Attention Weights}(Q_i, K_j) \cdot V_j
 $$
+
+
+> softmax 函数 将一组实数转换为一个概率分部 使得输出值的和为1
+> 
+> $$
+> p_i ={\frac{e^{z_i}}{\sum_{j=1}^ne^{z_j}}} 
+> $$
+> 大白话 将一组数求和取平均值后将平均值赋值给组中全部的数
