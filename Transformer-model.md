@@ -101,4 +101,4 @@ $$
 
 其中 * 代表了被遮挡的部分
 
-Masked Multi-Head Self-Attention 与 Multi-Head Self-Attention 的区别仅在于计算注意力权重时 引入了掩蔽矩阵（定义了哪些位置不允许访问 设置为$-∞$）
+Masked Multi-Head Self-Attention 与 Multi-Head Self-Attention 的区别仅在于计算注意力权重时 引入了掩蔽矩阵（定义了哪些位置不允许访问 设置为 $-∞$ ）
